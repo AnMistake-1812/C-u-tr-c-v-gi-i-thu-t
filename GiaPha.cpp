@@ -71,8 +71,53 @@ bool themThanhVien(LinkedList& list, const Item& x) {
     return true;
 }
 
-// In danh sách ra màn hình (duyệt từ head đến nullptr)          -> O(n)
 
+// tìm theo ID và cập nhật dữ liệu ngay trên node hiện tại -> O(n)
+bool suaThanhVien(LinkedList& list, int id, const Item& thongTinMoi)
+{
+    Node* node = timKiemTheoID(list, id);
+    if (node == nullptr)
+    { return false; }
+
+    node->data.hoTen = thongTinMoi.hoTen;
+    node->data.namSinh = thongTinMoi.namSinh;
+    node->data.gioiTinh = ThongTinMoi.gioiTinh;
+    return True;
+}
+
+// Duyệt tìm node và gỡ các liên kết gia đình trước khi giải phóng -> O(n)
+bool xoaThanhVien(LinkedList& list, list, int id)
+{
+    Node* prev = nullptr;
+    Node* node = list.head;
+    while (node != nullptr && node->data.id != id) 
+    {
+        prev = node;
+        node = node->next;
+    }
+
+    if (node == nullptr) {
+        return false;
+    }
+    if (prev == nullptr) {
+        list.head = node->next;
+    } else {
+        prev->next = node->next;
+    }
+
+     for(Node* cur = list.head; cur != nullptr; cur = cur->next) 
+        {
+            if (cur->cha == node) {
+                cur->cha = nullptr;
+            }
+            if (cur->me == node) {
+                cur->me = nullptr;
+            }
+        }
+    delete node;
+    return true;
+}
+// In danh sách ra màn hình (duyệt từ head đến nullptr)          -> O(n)
 void printList(const LinkedList& list) {
     if (list.head == nullptr) {
         cout << "Gia pha rong." << endl;
