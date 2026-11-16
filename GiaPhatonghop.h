@@ -23,8 +23,10 @@ struct LinkedList {
     Node* head;
 };
 
+// Thanh vien 1
 Node* taoNode(int id, string hoTen, string gioiTinh, int namSinh, int namMat, string voChong);
 
+// Thanh vien 2
 void initList(LinkedList& list);
 void insertHead(LinkedList& list, Node* newNode);
 void insertTail(LinkedList& list, Node* newNode);
@@ -33,16 +35,19 @@ bool themThanhVien(LinkedList& list, Node* newNode);
 void printList(const LinkedList& list);
 void destroyList(LinkedList& list);
 
+// Thanh vien 3
 bool suaThanhVien(LinkedList& list, int id, string hoTen, string gioiTinh, int namSinh, int namMat, string voChong);
 bool xoaThanhVien(LinkedList& list, int id);
 
+// Thanh vien 4
 void timCuTo(const LinkedList& list);
 void inConCai(const LinkedList& list, int id);
 void inAnhChiEm(const LinkedList& list, int id);
 void xemTatCaQuanHe(const LinkedList& list, int id);
 
-void taoDuLieuMau(LinkedList& list);
+// Thanh vien 5
 bool kiemTraHopLe(const LinkedList& list, int id, int namSinh, int namMat);
+void taoDuLieuMau(LinkedList& list);
 void chayTestCase();
 
 #endif
